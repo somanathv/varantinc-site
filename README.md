@@ -63,6 +63,17 @@ One-time setup (5 minutes):
 3. In `admin/config.yml`, set `repo:` to your GitHub `username/repo` and
    `base_url:` to `https://varantinc.com`, then redeploy.
 
+## Contact form email setup (2 minutes)
+
+The contact form POSTs to `/api/contact.js`, which sends mail via Resend:
+1. Sign up free at https://resend.com (100 emails/day free).
+2. Verify `varantinc.com` as a sending domain (Resend gives you 3 DNS records).
+3. Vercel → Project → Settings → Environment Variables, add:
+   - `RESEND_API_KEY` = your Resend API key
+   - (optional) `CONTACT_FROM` = verified sender, default `Varant Inc Website <website@varantinc.com>`
+   - (optional) `CONTACT_TO` = recipient, default `info@varantinc.com`
+4. Redeploy. Until the key is set, the form shows a clear "email us directly" message.
+
 **B. Direct edit (no setup)** — edit `content/jobs.json` in the GitHub web UI
 (github.dev works too), commit, and Vercel redeploys automatically.
 

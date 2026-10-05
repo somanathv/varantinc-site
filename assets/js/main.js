@@ -127,22 +127,56 @@
     });
   });
 
-  /* Contact form -> mailto */
+  /* Contact form -> server-side email */
   var form = document.getElementById("contact-form");
   if (form) {
+    // Honeypot field (hidden from humans, bots fill it).
+    var hp = document.createElement("input");
+    hp.type = "text"; hp.name = "website"; hp.tabIndex = -1;
+    hp.autocomplete = "off"; hp.style.display = "none";
+    form.appendChild(hp);
+
+    var statusEl = document.createElement("p");
+    statusEl.id = "cf-status";
+    statusEl.style.cssText = "font-size:0.92rem;margin-top:14px;min-height:1.4em;";
+    form.querySelector('button[type="submit"]').after(statusEl);
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var name = document.getElementById("cf-name").value;
-      var email = document.getElementById("cf-email").value;
-      var company = document.getElementById("cf-company").value;
-      var topic = document.getElementById("cf-topic").value;
-      var msg = document.getElementById("cf-message").value;
-      var subject = encodeURIComponent("Website enquiry: " + topic + " — " + name);
-      var body = encodeURIComponent(
-        "Name: " + name + "\nEmail: " + email + "\nCompany: " + company +
-        "\nTopic: " + topic + "\n\n" + msg
-      );
-      window.location.href = "mailto:info@varantinc.com?subject=" + subject + "&body=" + body;
+      var btn = form.querySelector('button[type="submit"]');
+      var payload = {
+        name: document.getElementById("cf-name").value,
+        email: document.getElementById("cf-email").value,
+        company: document.getElementById("cf-company").value,
+        topic: document.getElementById("cf-topic").value,
+        message: document.getElementById("cf-message").value,
+        website: hp.value
+      };
+      btn.disabled = true;
+      btn.textContent = "Sending…";
+      statusEl.style.color = "var(--muted)";
+      statusEl.textContent = "";
+      fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (out) {
+        if (out.ok) {
+          statusEl.style.color = "#3ecf8e";
+          statusEl.textContent = "Message sent — we'll get back to you within one business day.";
+          form.reset();
+        } else {
+          statusEl.style.color = "#e0494f";
+          statusEl.textContent = (out.j && out.j.error) || "Something went wrong. Please email info@varantinc.com directly.";
+        }
+      }).catch(function () {
+        statusEl.style.color = "#e0494f";
+        statusEl.textContent = "Couldn't reach our server. Please email info@varantinc.com directly.";
+      }).finally(function () {
+        btn.disabled = false;
+        btn.textContent = "Send message";
+      });
     });
   }
 

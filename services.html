@@ -12,17 +12,6 @@
   <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body>
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <div>
-        <span class="sys-status"><i></i>systems operational</span>
-        <a href="tel:+19729577135">+1 972-957-7135</a><span class="dot">•</span>
-        <a href="mailto:info@varantinc.com">info@varantinc.com</a>
-      </div>
-      <div>Dallas, TX <span class="dot">•</span> Navi Mumbai, India</div>
-    </div>
-  </div>
-
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="/" aria-label="Varant Inc home"><img src="/assets/brand/varant-logo.png" alt="Varant Inc — Inspiring Solutions" /></a>
@@ -35,9 +24,9 @@
         <a href="/contact.html">Contact</a>
       </nav>
       <div class="header-actions">
-        <a class="btn btn-outline btn-sm" href="https://hr.varantinc.com">Employee Portal</a>
+        <a class="btn btn-outline btn-sm" href="https://hr.varantinc.com" target="_blank" rel="noopener">Employee Portal</a>
         <a class="btn btn-primary btn-sm" href="/contact.html">Get in Touch</a>
-        <a class="btn btn-outline btn-sm btn-portal-m" href="https://hr.varantinc.com">Employee Portal</a>
+        <a class="btn btn-outline btn-sm btn-portal-m" href="https://hr.varantinc.com" target="_blank" rel="noopener">Employee Portal</a>
         <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -59,12 +48,57 @@
           <article class="card reveal" id="staff-augmentation"><div class="card-icon">👥</div><h3>Staff Augmentation</h3><p>Source top-tier technical talent with superior communication skills, backed by our global network. Our consultants integrate with your team, your tools, and your culture — productive from week one.</p></article>
           <article class="card reveal" id="software-development"><div class="card-icon">💻</div><h3>Software Development</h3><p>Custom software tailored to your business, built with best practices and proven methodologies. From modernizing legacy systems to greenfield applications — reliable, maintainable, and built to scale.</p></article>
           <article class="card reveal" id="mobile-apps"><div class="card-icon">📱</div><h3>Mobile App Development</h3><p>Deliver your capabilities on the go with custom mobile apps designed for user convenience — including field-ready experiences for technical and operational teams.</p></article>
-          <article class="card reveal" id="ai-solutions"><div class="card-icon">🧠</div><h3>AI Solutions</h3><p>LLM-powered applications, AI agents, and machine learning — from pilot to production, with evals, guardrails, and responsible deployment built in.</p></article>
+          <article class="card reveal" id="ai-solutions"><div class="card-icon">🧠</div><h3>AI Solutions</h3><p>Production-grade AI, not demos. LLM applications, autonomous agents, and machine learning systems — architected, evaluated, and hardened for enterprise reality, from pilot to production.</p><a class="card-link" href="#ai-practice">Explore the AI practice</a></article>
           <article class="card reveal" id="product-development"><div class="card-icon">🚀</div><h3>Product Development</h3><p>Join us in shaping the future with full-stack, cloud, AI, and mobile expertise. We take products from idea to launch — the same capability behind InvestWick and Staffline.</p></article>
           <article class="card reveal" id="enterprise-integration"><div class="card-icon">🔗</div><h3>Enterprise Integration</h3><p>Integrate your enterprise applications seamlessly with expert backend services — secure, efficient business processes across the systems you already run.</p></article>
           <article class="card reveal" id="cloud-consulting"><div class="card-icon">☁️</div><h3>Cloud Consulting</h3><p>Cloud strategy, migration, and cost optimization across Oracle, Microsoft Azure, Google Cloud, and AWS. We help you pick the right platform — then get the most out of it.</p></article>
           <article class="card reveal" id="cyber-security"><div class="card-icon">🛡️</div><h3>Cyber Security Consulting</h3><p>Protect what matters: security assessments, hardening guidance, and consulting that keeps your applications, data, and infrastructure resilient against modern threats.</p></article>
 
+        </div>
+      </div>
+    </section>
+
+    <section id="ai-practice" style="background:var(--bg-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">// artificial intelligence</span>
+          <h2>The AI practice</h2>
+          <p class="lead">We design, build, and operate AI systems that survive contact with production — grounded in your data, measured against your metrics, and engineered for reliability from day one.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card reveal">
+            <span class="tag">GenAI</span>
+            <h3>LLM Applications & Agents</h3>
+            <p>From copilots to fully autonomous agents — built on your documents, your systems, your workflows.</p>
+            <ul class="mini-list">
+              <li><strong>RAG pipelines</strong> — vector search over your knowledge base (Pinecone, pgvector, Weaviate)</li>
+              <li><strong>AI agents</strong> with tool use, planning & multi-step orchestration</li>
+              <li><strong>Enterprise copilots</strong> for support, sales, HR & operations</li>
+              <li>Fine-tuning, prompt engineering & context optimization</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <span class="tag">ML</span>
+            <h3>Machine Learning Systems</h3>
+            <p>Classical ML and deep learning where it moves the needle — forecasting, classification, and decision intelligence in production.</p>
+            <ul class="mini-list">
+              <li><strong>Forecasting</strong> — demand, revenue & time-series models</li>
+              <li><strong>Classification & scoring</strong> — risk, churn, fraud, lead quality</li>
+              <li><strong>MLOps</strong> — training pipelines, monitoring & retraining loops</li>
+              <li>Feature engineering on your data warehouse</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <span class="tag">Assurance</span>
+            <h3>Evals, Guardrails & Deployment</h3>
+            <p>The unglamorous work that makes AI trustworthy — measurement, safety, and controlled rollout.</p>
+            <ul class="mini-list">
+              <li><strong>Eval harnesses</strong> — golden datasets, regression suites, LLM-as-judge</li>
+              <li><strong>Guardrails</strong> — PII redaction, content filters, human-in-the-loop</li>
+              <li><strong>Red-teaming</strong> — adversarial testing before your users do it</li>
+              <li>Observability: traces, costs & quality dashboards</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
@@ -153,8 +187,8 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="/assets/brand/varant-logo.png" alt="Varant Inc" />
-          <p>Inspiring Solutions — IT consulting and product development from Dallas, TX and Navi Mumbai, India.</p>
-          <p style="margin-top:16px;"><a class="portal-link" href="https://hr.varantinc.com">Employee Portal →</a></p>
+          <p>Inspiring Solutions — IT consulting and product development from Coppell, TX and Navi Mumbai, India.</p>
+          <p style="margin-top:16px;"><a class="portal-link" href="https://hr.varantinc.com" target="_blank" rel="noopener">Employee Portal →</a></p>
         </div>
         <div>
           <h4>Services</h4>
@@ -184,7 +218,7 @@
             <li><a href="tel:+19729577135">+1 972-957-7135</a></li>
             <li><a href="tel:+919820286121">+91 982-028-6121</a></li>
             <li><a href="mailto:info@varantinc.com">info@varantinc.com</a></li>
-            <li>8951 Cypress Waters Blvd, Suite 160,<br />Dallas, TX 75019</li>
+            <li>8951 Cypress Waters Blvd, Suite 160,<br />Coppell, TX 75019</li>
           </ul>
         </div>
       </div>

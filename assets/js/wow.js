@@ -199,6 +199,12 @@
         { t: "✓ model fine-tuned on your data", c: "ok" },
         { t: "✓ evals + guardrails passing", c: "ok" },
         { t: "✓ agent live in 3m 12s", c: "dim" }
+      ],
+      [
+        { t: "$ varant rag index --docs ./knowledge-base", c: "cmd" },
+        { t: "✓ 12,408 chunks embedded → pgvector", c: "ok" },
+        { t: "✓ retrieval recall@5: 0.94", c: "ok" },
+        { t: "✓ grounded answers, citations on", c: "dim" }
       ]
     ];
     var si = 0, li = 0, ci = 0, lineEl = null;
