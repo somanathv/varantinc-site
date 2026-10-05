@@ -1,0 +1,52 @@
+# Decap CMS configuration — this powers the /admin content manager.
+# One-time setup: create a GitHub OAuth App (see README.md) and set
+# GITHUB_OAUTH_CLIENT_ID / GITHUB_OAUTH_CLIENT_SECRET as Vercel env vars,
+# then replace the repo value below with your GitHub repo.
+
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/varantinc-site # <-- change this
+  branch: main
+  base_url: https://varantinc.com            # <-- your deployed site URL
+  auth_endpoint: api/auth
+
+publish_mode: editorial_workflow
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+collections:
+  - name: "jobs"
+    label: "Job Postings"
+    files:
+      - file: "content/jobs.json"
+        label: "Jobs"
+        name: "jobs_file"
+        fields:
+          - label: "Jobs"
+            name: "jobs"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.location}}"
+            fields:
+              - { label: "Job Title", name: "title", widget: "string" }
+              - { label: "Location", name: "location", widget: "string", default: "Dallas, TX" }
+              - { label: "Employment Type", name: "type", widget: "select", options: ["Full-time", "Contract", "Part-time"], default: "Full-time" }
+              - { label: "Department", name: "department", widget: "string", default: "Engineering" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Posted Date", name: "posted", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+              - { label: "Visible on site", name: "active", widget: "boolean", default: true }
+  - name: "news"
+    label: "News & Announcements"
+    files:
+      - file: "content/news.json"
+        label: "News"
+        name: "news_file"
+        fields:
+          - label: "News items"
+            name: "news"
+            widget: "list"
+            summary: "{{fields.date}} — {{fields.title}}"
+            fields:
+              - { label: "Date label", name: "date", widget: "string", hint: "e.g. May 2025" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Summary", name: "summary", widget: "text" }
+              - { label: "Visible on site", name: "active", widget: "boolean", default: true }
