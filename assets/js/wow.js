@@ -205,6 +205,30 @@
         { t: "✓ 12,408 chunks embedded → pgvector", c: "ok" },
         { t: "✓ retrieval recall@5: 0.94", c: "ok" },
         { t: "✓ grounded answers, citations on", c: "dim" }
+      ],
+      [
+        { t: "$ varant ai eval --suite regression", c: "cmd" },
+        { t: "✓ 1,204 cases passing", c: "ok" },
+        { t: "✓ hallucination rate 0.3%", c: "ok" },
+        { t: "✓ cost per 1k requests: $0.42", c: "dim" }
+      ],
+      [
+        { t: "$ varant coffee --strength double", c: "cmd" },
+        { t: "✓ brewing...", c: "dim" },
+        { t: "✓ caffeine levels optimal", c: "ok" },
+        { t: "✓ engineer productivity +300%", c: "ok" }
+      ],
+      [
+        { t: "$ varant deploy --target friday-5pm", c: "cmd" },
+        { t: "✗ denied: have you learned nothing?", c: "err" },
+        { t: "→ rescheduled to monday, 10am", c: "dim" },
+        { t: "✓ disaster avoided", c: "ok" }
+      ],
+      [
+        { t: "$ varant standup --duration 15m", c: "cmd" },
+        { t: "✓ done in 14m 59s", c: "ok" },
+        { t: "✓ zero 'quick syncs' spawned", c: "ok" },
+        { t: "✓ engineers released to the wild", c: "dim" }
       ]
     ];
     var si = 0, li = 0, ci = 0, lineEl = null;
