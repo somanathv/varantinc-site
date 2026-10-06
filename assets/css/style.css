@@ -29,6 +29,55 @@
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 
+/* ---------- Light theme (opt-in via [data-theme="light"]; dark is default) ---------- */
+[data-theme="light"] {
+  --bg: #f4f7fb;
+  --bg-soft: #e9eff6;
+  --bg-card: #ffffff;
+  --bg-deep: #dfe7f1;
+  --bg-tint: #e4ecf5;
+  --line: rgba(13, 43, 69, 0.12);
+  --line-strong: rgba(13, 43, 69, 0.24);
+  --ink: #20334a;
+  --muted: #5a7186;
+  --heading: #0e1e30;
+  --red: #d43a41;
+  --red-dark: #b03339;
+  --red-glow: rgba(212, 58, 65, 0.22);
+  --teal: #1d8a80;
+  --teal-dim: rgba(29, 138, 128, 0.12);
+  --green: #189a5c;
+  --shadow: 0 10px 30px rgba(13, 43, 69, 0.08);
+  --shadow-lg: 0 24px 60px rgba(13, 43, 69, 0.14);
+}
+[data-theme="light"] .card { background: var(--bg-card); }
+[data-theme="light"] .site-footer { background: #0b1524; }
+[data-theme="light"] .trust-logos span { color: #93a8bd; }
+[data-theme="light"] .trust-logos span:hover { color: #33475c; }
+[data-theme="light"] .btn-dark { background: #0e1e30; color: #fff; }
+[data-theme="light"] .site-header { background: rgba(244, 247, 251, 0.88); }
+[data-theme="light"] .main-nav a { color: var(--muted); }
+[data-theme="light"] .main-nav a:hover { color: var(--heading); }
+[data-theme="light"] .main-nav a.active { color: var(--red); }
+[data-theme="light"] .main-nav a:hover { background: rgba(13, 43, 69, 0.06); }
+[data-theme="light"] .hero {
+  background:
+    linear-gradient(rgba(13, 43, 69, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 43, 69, 0.05) 1px, transparent 1px),
+    radial-gradient(70% 90% at 70% 10%, rgba(212, 58, 65, 0.07) 0%, transparent 55%),
+    radial-gradient(50% 70% at 15% 90%, rgba(29, 138, 128, 0.07) 0%, transparent 55%),
+    var(--bg);
+}
+
+/* ---------- Theme toggle ---------- */
+.theme-toggle {
+  background: transparent; border: 1px solid var(--line-strong); border-radius: 10px;
+  width: 38px; height: 38px; display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--muted); padding: 0; flex: 0 0 auto;
+}
+.theme-toggle:hover { color: var(--heading); border-color: var(--red); }
+.theme-toggle svg { width: 17px; height: 17px; display: block; }
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {

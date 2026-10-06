@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
+<script>try{if(localStorage.getItem("varant-theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
 </head>
 <body>
   <header class="site-header">
@@ -27,6 +28,10 @@
         <a class="btn btn-outline btn-sm" href="https://hr.varantinc.com" target="_blank" rel="noopener">Employee Portal</a>
         <a class="btn btn-primary btn-sm" href="/contact.html">Get in Touch</a>
         <a class="btn btn-outline btn-sm btn-portal-m" href="https://hr.varantinc.com" target="_blank" rel="noopener">Employee Portal</a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light / dark theme" title="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5 5l1.7 1.7M17.3 17.3L19 19M19 5l-1.7 1.7M6.7 17.3L5 19"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M20 13.2A8.2 8.2 0 0 1 10.8 4 8.2 8.2 0 1 0 20 13.2z"/></svg>
+        </button>
         <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -51,7 +56,7 @@
           <h2>Consultants who build. Builders who consult.</h2>
           <p>Varant Inc was founded on a simple belief: the best technology advice comes from people who actually build software. That principle has carried us from early consulting engagements to long-term partnerships with Fortune 1000 clients.</p>
           <p>Today we operate from our headquarters in Coppell, Texas, with a delivery center in Navi Mumbai, India — giving our clients onshore partnership backed by global engineering depth.</p>
-          <p>And we practice what we preach: our product lab has shipped InvestWick, a financial advisory platform, and Staffline, HR software for small and medium businesses — proof that our teams don't just advise on products, they deliver them.</p>
+          <p>And we practice what we preach: our product lab has shipped InvestWick, a financial advisory platform, and Folkzen, HR software for small and medium businesses — proof that our teams don't just advise on products, they deliver them.</p>
           <p>We're AI-native in practice, not in slideware. Our engineers ship RAG pipelines over enterprise knowledge bases, autonomous agents with tool use and multi-step planning, and ML forecasting systems running in production — the same stack inside InvestWick's market intelligence engine. Every AI engagement ships with eval harnesses, guardrails, and observability, because a model that can't be measured can't be trusted. From vector search to red-teaming, we do the unglamorous engineering that makes AI actually work.</p>
         </div>
       </div>
@@ -80,7 +85,7 @@
         </div>
         <div class="timeline">
           <div class="timeline-item reveal"><div class="t-date">May 2025</div><h3>Oracle partnership</h3><p>New partnership with Oracle to deliver enterprise cloud solutions on Oracle Cloud Infrastructure.</p></div>
-          <div class="timeline-item reveal"><div class="t-date">October 2025</div><h3>Staffline launches</h3><p>Our HR operations product for small and medium businesses goes live — onboarding, timesheets, leave, and payroll-ready reporting in one platform.</p></div>
+          <div class="timeline-item reveal"><div class="t-date">October 2025</div><h3>Folkzen launches</h3><p>Our HR operations product for small and medium businesses goes live — onboarding, timesheets, leave, and payroll-ready reporting in one platform.</p></div>
           <div class="timeline-item reveal"><div class="t-date">March 2025</div><h3>InvestWick launches</h3><p>Our financial advisory platform brings smarter stock and options insights to everyday investors.</p></div>
           <div class="timeline-item reveal"><div class="t-date">June 2023</div><h3>New Coppell headquarters</h3><p>We move into 8951 Cypress Waters Blvd, Suite 160, Coppell, TX 75019.</p></div>
           <div class="timeline-item reveal"><div class="t-date">February 2023</div><h3>Cloud partnerships expand</h3><p>New partnerships with Microsoft Azure, Google Cloud, and AWS strengthen our cloud practice.</p></div>

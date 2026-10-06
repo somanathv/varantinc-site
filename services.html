@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
+<script>try{if(localStorage.getItem("varant-theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
 </head>
 <body>
   <header class="site-header">
@@ -27,6 +28,10 @@
         <a class="btn btn-outline btn-sm" href="https://hr.varantinc.com" target="_blank" rel="noopener">Employee Portal</a>
         <a class="btn btn-primary btn-sm" href="/contact.html">Get in Touch</a>
         <a class="btn btn-outline btn-sm btn-portal-m" href="https://hr.varantinc.com" target="_blank" rel="noopener">Employee Portal</a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light / dark theme" title="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5 5l1.7 1.7M17.3 17.3L19 19M19 5l-1.7 1.7M6.7 17.3L5 19"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M20 13.2A8.2 8.2 0 0 1 10.8 4 8.2 8.2 0 1 0 20 13.2z"/></svg>
+        </button>
         <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -49,7 +54,7 @@
           <article class="card reveal" id="software-development"><div class="card-icon">💻</div><h3>Software Development</h3><p>Custom software tailored to your business, built with best practices and proven methodologies. From modernizing legacy systems to greenfield applications — reliable, maintainable, and built to scale.</p></article>
           <article class="card reveal" id="mobile-apps"><div class="card-icon">📱</div><h3>Mobile App Development</h3><p>Deliver your capabilities on the go with custom mobile apps designed for user convenience — including field-ready experiences for technical and operational teams.</p></article>
           <article class="card reveal" id="ai-solutions"><div class="card-icon">🧠</div><h3>AI Solutions</h3><p>Production-grade AI, not demos. LLM applications, autonomous agents, and machine learning systems — architected, evaluated, and hardened for enterprise reality, from pilot to production.</p><a class="card-link" href="#ai-practice">Explore the AI practice</a></article>
-          <article class="card reveal" id="product-development"><div class="card-icon">🚀</div><h3>Product Development</h3><p>Join us in shaping the future with full-stack, cloud, AI, and mobile expertise. We take products from idea to launch — the same capability behind InvestWick and Staffline.</p></article>
+          <article class="card reveal" id="product-development"><div class="card-icon">🚀</div><h3>Product Development</h3><p>Join us in shaping the future with full-stack, cloud, AI, and mobile expertise. We take products from idea to launch — the same capability behind InvestWick and Folkzen.</p></article>
           <article class="card reveal" id="enterprise-integration"><div class="card-icon">🔗</div><h3>Enterprise Integration</h3><p>Integrate your enterprise applications seamlessly with expert backend services — secure, efficient business processes across the systems you already run.</p></article>
           <article class="card reveal" id="cloud-consulting"><div class="card-icon">☁️</div><h3>Cloud Consulting</h3><p>Cloud strategy, migration, and cost optimization across Oracle, Microsoft Azure, Google Cloud, and AWS. We help you pick the right platform — then get the most out of it.</p></article>
           <article class="card reveal" id="cyber-security"><div class="card-icon">🛡️</div><h3>Cyber Security Consulting</h3><p>Protect what matters: security assessments, hardening guidance, and consulting that keeps your applications, data, and infrastructure resilient against modern threats.</p></article>

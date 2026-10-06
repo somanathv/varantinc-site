@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Products — Varant Inc | InvestWick, Staffline & Roamdar</title>
-  <meta name="description" content="Products built by Varant Inc: InvestWick, a financial advisory platform; Staffline, HR software for SMBs; and Roamdar, collaborative AI trip planning (coming soon)." />
+  <title>Products — Varant Inc | InvestWick, Folkzen & Roamdar</title>
+  <meta name="description" content="Products built by Varant Inc: InvestWick, a financial advisory platform; Folkzen, HR software for SMBs; and Roamdar, collaborative AI trip planning (coming soon)." />
   <link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
+<script>try{if(localStorage.getItem("varant-theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
 </head>
 <body>
   <header class="site-header">
@@ -27,6 +28,10 @@
         <a class="btn btn-outline btn-sm" href="https://hr.varantinc.com" target="_blank" rel="noopener">Employee Portal</a>
         <a class="btn btn-primary btn-sm" href="/contact.html">Get in Touch</a>
         <a class="btn btn-outline btn-sm btn-portal-m" href="https://hr.varantinc.com" target="_blank" rel="noopener">Employee Portal</a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light / dark theme" title="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5 5l1.7 1.7M17.3 17.3L19 19M19 5l-1.7 1.7M6.7 17.3L5 19"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M20 13.2A8.2 8.2 0 0 1 10.8 4 8.2 8.2 0 1 0 20 13.2z"/></svg>
+        </button>
         <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -62,15 +67,15 @@
           </div>
         </div>
 
-        <div class="split" id="staffline" style="margin-bottom:90px;">
+        <div class="split" id="folkzen" style="margin-bottom:90px;">
           <div class="reveal">
-            <img src="/assets/img/staffline-dashboard.webp" alt="Staffline HR operations dashboard" />
+            <img src="/assets/img/folkzen-dashboard.webp" alt="Folkzen HR operations dashboard" />
           </div>
           <div class="reveal">
             <span class="tag">HR & Workforce</span>
-            <h2>Staffline</h2>
+            <h2>Folkzen</h2>
             <p class="lead">HR operations for small and medium businesses — without the enterprise bloat.</p>
-            <p>Staffline gives growing companies everything they need to manage their people in one calm, easy-to-run platform: onboarding, timesheets, leave, payroll-ready reporting, and compliance tracking.</p>
+            <p>Folkzen gives growing companies everything they need to manage their people in one calm, easy-to-run platform: onboarding, timesheets, leave, payroll-ready reporting, and compliance tracking.</p>
             <ul class="check-list">
               <li>Employee onboarding with document checklists and verifications</li>
               <li>Timesheets with client approval workflows</li>
@@ -78,7 +83,7 @@
               <li>Payroll-ready reports that plug into your payroll provider</li>
               <li>Compliance tracking — work authorization, I-9, and document expiries</li>
             </ul>
-            <a class="btn btn-primary" href="/contact.html">Request a demo</a>
+            <a class="btn btn-primary" href="/contact.html?topic=Folkzen&src=products-folkzen">Request a demo</a>
           </div>
         </div>
 
@@ -97,7 +102,7 @@
               <li>AI suggestions for routes, food, and viewpoints</li>
               <li>Cost estimates and exportable trip plans</li>
             </ul>
-            <a class="btn btn-dark" href="/contact.html">Get notified at launch</a>
+            <a class="btn btn-dark" href="/contact.html?topic=Roamdar&src=products-roamdar">Get notified at launch</a>
           </div>
         </div>
       </div>
@@ -108,7 +113,7 @@
         <div class="section-head center reveal">
           <span class="eyebrow">Product development services</span>
           <h2>Have a product idea of your own?</h2>
-          <p class="lead">The team behind InvestWick and Staffline can take your concept from idea to launch — strategy, design, engineering, and growth.</p>
+          <p class="lead">The team behind InvestWick and Folkzen can take your concept from idea to launch — strategy, design, engineering, and growth.</p>
         </div>
         <div style="text-align:center;" class="reveal">
           <a class="btn btn-primary" href="/services.html#product-development">Explore product development</a>

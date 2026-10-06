@@ -29,6 +29,7 @@ module.exports = async (req, res) => {
   const company = String(body.company || "").trim().slice(0, 160);
   const topic = String(body.topic || "").trim().slice(0, 80);
   const message = String(body.message || "").trim().slice(0, 5000);
+  const source = String(body.source || "").trim().slice(0, 120);
 
   if (!name || !isEmail(email) || !message) {
     return res.status(400).json({ error: "Please fill in your name, a valid email, and a message." });
@@ -58,7 +59,8 @@ module.exports = async (req, res) => {
           "Name: " + name + "\n" +
           "Email: " + email + "\n" +
           "Company: " + (company || "—") + "\n" +
-          "Topic: " + (topic || "—") + "\n\n" +
+          "Topic: " + (topic || "—") + "\n" +
+          "Source: " + (source || "contact page") + "\n\n" +
           message
       })
     });

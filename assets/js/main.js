@@ -2,6 +2,35 @@
 (function () {
   "use strict";
 
+  /* Theme: dark is default; toggle persists to localStorage */
+  var rootEl = document.documentElement;
+  function currentTheme() {
+    return rootEl.getAttribute("data-theme") === "light" ? "light" : "dark";
+  }
+  function syncThemeIcon() {
+    var btn = document.getElementById("theme-toggle");
+    if (!btn) return;
+    var light = currentTheme() === "light";
+    var sun = btn.querySelector(".icon-sun");
+    var moon = btn.querySelector(".icon-moon");
+    if (sun) sun.style.display = light ? "none" : "";
+    if (moon) moon.style.display = light ? "" : "none";
+    btn.setAttribute("aria-label", light ? "Switch to dark theme" : "Switch to light theme");
+  }
+  try {
+    var saved = localStorage.getItem("varant-theme");
+    rootEl.setAttribute("data-theme", saved === "light" ? "light" : "dark");
+  } catch (e) { rootEl.setAttribute("data-theme", "dark"); }
+  syncThemeIcon();
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest ? e.target.closest("#theme-toggle") : null;
+    if (!btn) return;
+    var next = currentTheme() === "light" ? "dark" : "light";
+    rootEl.setAttribute("data-theme", next);
+    try { localStorage.setItem("varant-theme", next); } catch (e) {}
+    syncThemeIcon();
+  });
+
   /* Mobile nav */
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.querySelector(".main-nav");
@@ -130,6 +159,33 @@
   /* Contact form -> server-side email */
   var form = document.getElementById("contact-form");
   if (form) {
+    // Prefill from ?topic= & ?src= (e.g. "Get notified at launch" buttons).
+    var srcField = document.createElement("input");
+    srcField.type = "hidden"; srcField.name = "source"; srcField.id = "cf-source";
+    form.appendChild(srcField);
+    try {
+      var qs = new URLSearchParams(window.location.search);
+      var qTopic = (qs.get("topic") || "").trim();
+      var qSrc = (qs.get("src") || "").trim();
+      if (qSrc) srcField.value = qSrc;
+      if (qTopic) {
+        var sel = document.getElementById("cf-topic");
+        var ql = qTopic.toLowerCase();
+        for (var i = 0; i < sel.options.length; i++) {
+          if (sel.options[i].text.toLowerCase().indexOf(ql) === 0) {
+            sel.selectedIndex = i;
+            break;
+          }
+        }
+        // Show where they came from.
+        var note = document.createElement("p");
+        note.id = "cf-context";
+        note.style.cssText = "font-size:0.88rem;color:var(--muted);margin:-4px 0 18px;";
+        note.textContent = "You're reaching out about " + sel.options[sel.selectedIndex].text + " — we've pre-selected it below.";
+        var h2 = form.parentElement.querySelector(".section-head");
+        if (h2) h2.appendChild(note);
+      }
+    } catch (e) { /* ignore */ }
     // Honeypot field (hidden from humans, bots fill it).
     var hp = document.createElement("input");
     hp.type = "text"; hp.name = "website"; hp.tabIndex = -1;
@@ -150,6 +206,7 @@
         company: document.getElementById("cf-company").value,
         topic: document.getElementById("cf-topic").value,
         message: document.getElementById("cf-message").value,
+        source: document.getElementById("cf-source").value,
         website: hp.value
       };
       btn.disabled = true;
