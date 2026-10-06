@@ -501,3 +501,52 @@ p { margin-bottom: 1em; color: var(--ink); }
   .terminal { font-size: 0.8rem; min-height: 140px; }
 }
 .header-actions .btn-portal-m { display: none; }
+
+/* --- Collapsible cards (services deep-dives) --- */
+details.collapsible { cursor: default; }
+details.collapsible summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+details.collapsible summary::-webkit-details-marker { display: none; }
+details.collapsible summary h3 { margin: 0; flex: 1; min-width: 0; }
+details.collapsible .collapse-icon {
+  width: 28px; height: 28px; flex: none;
+  border: 1px solid var(--line-strong); border-radius: 50%;
+  position: relative; transition: transform .25s ease, border-color .25s ease;
+}
+details.collapsible .collapse-icon::before,
+details.collapsible .collapse-icon::after {
+  content: ""; position: absolute; background: var(--muted);
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  transition: background .25s ease;
+}
+details.collapsible .collapse-icon::before { width: 12px; height: 2px; }
+details.collapsible .collapse-icon::after { width: 2px; height: 12px; }
+details.collapsible[open] .collapse-icon { transform: rotate(135deg); border-color: var(--red); }
+details.collapsible[open] .collapse-icon::before,
+details.collapsible[open] .collapse-icon::after { background: var(--red); }
+details.collapsible summary:hover .collapse-icon { border-color: var(--red); }
+details.collapsible .collapsible-body { padding-top: 4px; }
+details.collapsible summary:focus-visible {
+  outline: 2px solid var(--red); outline-offset: 4px; border-radius: 8px;
+}
+
+/* --- CTA banner --- */
+.cta-banner {
+  padding: 72px 0;
+  background: var(--bg-soft);
+  border-top: 1px solid var(--line);
+}
+.cta-banner h2 { margin-bottom: 12px; }
+
+/* --- Notify form --- */
+.notify-form input[type="email"]:focus {
+  outline: 2px solid var(--red); outline-offset: 2px; border-color: var(--red);
+}
+.notify-form .notify-msg.ok { color: #3ecf8e; }
+.notify-form .notify-msg.err { color: #e5484d; }

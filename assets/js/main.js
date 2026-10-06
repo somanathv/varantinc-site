@@ -64,12 +64,22 @@
     revealEls.forEach(function (el) { el.classList.add("visible"); });
   }
 
-  /* News loader (home page) */
+  /* News loader (home page) — 5s timeout fallback for hung requests */
   var newsList = document.getElementById("news-list");
   if (newsList) {
+    var newsDone = false;
+    var newsTimer = setTimeout(function () {
+      if (!newsDone) {
+        newsDone = true;
+        newsList.innerHTML = '<div class="empty-state">Unable to load right now — please email <a href="mailto:info@varantinc.com">info@varantinc.com</a>.</div>';
+      }
+    }, 5000);
     fetch("/content/news.json")
       .then(function (r) { return r.json(); })
       .then(function (data) {
+        if (newsDone) return;
+        newsDone = true;
+        clearTimeout(newsTimer);
         var items = (data.news || []).filter(function (n) { return n.active !== false; });
         if (!items.length) {
           newsList.innerHTML = '<div class="empty-state">News updates coming soon.</div>';
@@ -83,6 +93,9 @@
         }).join("");
       })
       .catch(function () {
+        if (newsDone) return;
+        newsDone = true;
+        clearTimeout(newsTimer);
         newsList.innerHTML = '<div class="empty-state">Unable to load news right now.</div>';
       });
   }
@@ -122,9 +135,19 @@
     }).join("");
   }
   if (jobsGrid) {
+    var jobsDone = false;
+    var jobsTimer = setTimeout(function () {
+      if (!jobsDone) {
+        jobsDone = true;
+        jobsGrid.innerHTML = '<div class="empty-state" style="grid-column:1/-1">Unable to load right now — please email <a href="mailto:info@varantinc.com">info@varantinc.com</a>.</div>';
+      }
+    }, 5000);
     fetch("/content/jobs.json")
       .then(function (r) { return r.json(); })
       .then(function (data) {
+        if (jobsDone) return;
+        jobsDone = true;
+        clearTimeout(jobsTimer);
         allJobs = (data.jobs || []).filter(function (j) { return j.active !== false; });
         if (jobFilter) {
           var depts = [];
@@ -138,6 +161,9 @@
         renderJobs();
       })
       .catch(function () {
+        if (jobsDone) return;
+        jobsDone = true;
+        clearTimeout(jobsTimer);
         jobsGrid.innerHTML = '<div class="empty-state" style="grid-column:1/-1">Unable to load openings right now. Please email <a href="mailto:info@varantinc.com">info@varantinc.com</a>.</div>';
       });
     if (jobSearch) jobSearch.addEventListener("input", renderJobs);
@@ -233,6 +259,47 @@
       }).finally(function () {
         btn.disabled = false;
         btn.textContent = "Send message";
+      });
+    });
+  }
+
+  /* Roamdar launch notification form (products page) */
+  var notifyForm = document.getElementById("roamdar-notify");
+  if (notifyForm) {
+    notifyForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var btn = notifyForm.querySelector('button[type="submit"]');
+      var msg = notifyForm.querySelector(".notify-msg");
+      var emailInput = notifyForm.querySelector('input[name="email"]');
+      var hpInput = notifyForm.querySelector('input[name="website"]');
+      var payload = {
+        email: emailInput.value,
+        website: hpInput ? hpInput.value : ""
+      };
+      btn.disabled = true;
+      btn.textContent = "…";
+      msg.className = "notify-msg";
+      msg.textContent = "";
+      fetch("/api/notify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (out) {
+        if (out.ok) {
+          msg.className = "notify-msg ok";
+          msg.textContent = "You're on the list — you'll be notified at launch.";
+          notifyForm.reset();
+        } else {
+          msg.className = "notify-msg err";
+          msg.textContent = (out.j && out.j.error) || "Something went wrong. Please try again.";
+        }
+      }).catch(function () {
+        msg.className = "notify-msg err";
+        msg.textContent = "Couldn't reach our server. Please try again.";
+      }).finally(function () {
+        btn.disabled = false;
+        btn.textContent = "Notify me";
       });
     });
   }

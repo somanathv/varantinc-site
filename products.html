@@ -74,16 +74,18 @@
           <div class="reveal">
             <span class="tag">HR & Workforce</span>
             <h2>Folkzen</h2>
-            <p class="lead">HR operations for small and medium businesses — without the enterprise bloat.</p>
-            <p>Folkzen gives growing companies everything they need to manage their people in one calm, easy-to-run platform: onboarding, timesheets, leave, payroll-ready reporting, and compliance tracking.</p>
+            <p class="lead">The AI-driven operating system for small businesses.</p>
+            <p>Folkzen gives growing companies everything they need to run their people operations in one calm platform: onboarding, timesheets, leave, payroll-ready reporting, compliance tracking — plus invoicing generated straight from approved timesheets, Ask Folkzen natural-language reporting, and automatic expiry alerts.</p>
             <ul class="check-list">
               <li>Employee onboarding with document checklists and verifications</li>
               <li>Timesheets with client approval workflows</li>
+              <li>Invoicing from approved timesheets — bill rates, PO burn-down, PDFs</li>
+              <li>Ask Folkzen — natural-language reports over your live company data</li>
+              <li>Expiry-alert engine for visas, work permits, and documents</li>
               <li>Leave management with team calendars</li>
-              <li>Payroll-ready reports that plug into your payroll provider</li>
-              <li>Compliance tracking — work authorization, I-9, and document expiries</li>
             </ul>
-            <a class="btn btn-primary" href="/contact.html?topic=Folkzen&src=products-folkzen">Request a demo</a>
+            <a class="btn btn-primary" href="https://folkzen.com" target="_blank" rel="noopener">Explore Folkzen</a>
+            <a class="btn btn-outline" href="/contact.html?topic=Folkzen&src=products-folkzen" style="margin-left:12px;">Request a demo</a>
           </div>
         </div>
 
@@ -102,7 +104,17 @@
               <li>AI suggestions for routes, food, and viewpoints</li>
               <li>Cost estimates and exportable trip plans</li>
             </ul>
-            <a class="btn btn-dark" href="/contact.html?topic=Roamdar&src=products-roamdar">Get notified at launch</a>
+            <form class="notify-form" id="roamdar-notify" style="margin-top:1.25rem">
+              <p style="margin-bottom:.5rem"><strong>Get notified at launch</strong></p>
+              <div style="display:flex;gap:.5rem;max-width:380px">
+                <input type="email" name="email" required placeholder="you@example.com"
+                       aria-label="Email for Roamdar launch notification"
+                       style="flex:1;padding:.6rem .8rem;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text)" />
+                <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
+                <button type="submit" class="btn btn-dark">Notify me</button>
+              </div>
+              <p class="notify-msg" style="margin-top:.5rem;font-size:.9rem" aria-live="polite"></p>
+            </form>
           </div>
         </div>
       </div>
